@@ -1,0 +1,105 @@
+% --------------------------------------------------------------
+% Author: vtotient
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\pow}[1]{ \mathcal{P}\left(#1\right) }
+ 
+\begin{document}
+
+\title{Assignment 10} 
+\author{vTotient \\} 
+    
+\maketitle
+
+ \begin{enumerate}
+    \item[1. ]To prove $A\cup B$ is denumerable it suffices to show a listing of the set. That is a bijection between all the elements in $A\cup B$ to $\N$. Since we know both $A$ and $B$ are denumerable themselves, we can write
+    $$A=\{ a_1,a_2,a_3...\} $$
+    $$B= \{b_1,b_2,b_3...\}. $$
+    We can define the function $f$ as $f(1)=a_1$, $f(2)=b_1$, $f(3)=a_2$ etc. The listing is as follows
+    $$ A\cup B = \{a_1, b_1, a_2, b_2 ... \}. $$ Thus $A\cup B$ is denumerable.
+    \\ $\square$
+
+    \item[2. ]Again, it suffices to find a listing for the set $S=\bigcup^{\infty}_{n=1}A_n$. We can index the elements of this set as $a_{nm}\in S$, where $m$ refers to the index of an element in a particular set. That is, the third element in set $A_2$ is denoted $a_{23}$. We need not worry about repeated elements since we know that $A_n$ are disjoint sets. Now, just as we did in class for listing rational numbers we can write the set $S$ as 
+        \begin{align*}
+            S = \{& a_{11}, a_{12}, a_{13}...\\
+                  & a_{21}, a_{22}, a_{23}... \\
+                  & ... \}.
+        \end{align*}
+    \\ We can trace the off diagonals of this table to acquire the listing 
+    $$ S= \{a_{11}, a_{12}, a_{21}, a_{13}, a_{22}...\}. $$
+    \\ $\square$
+    
+    \item[3. ] \textbf{Lemma 1: }The Cartesian product, $A_1\times A_2 \times...\times A_n$ is denumerable. We can proceed by induction. The base case $A_1$ is denumerable as stated by the question. Now assume that $A_1\times...\times A_k$ is denumerable. Then $A_1\times...\times A_{k+1}=(A_1\times...\times A_k)\times A_{k+1}$ is denumerable since it is the cartesian product of two denumerable sets (as stated in class). Thus by induction, $\forall n\in\N$, $A_1\times A_2 \times...\times A_n$ is denumerable.
+    \\ \\
+    Now we may proceed with the question. It follows from Lemma 1 and question two that $\bigcup^{\infty}_{n=1}A^{\times n}$ is denumerable since it is the union of cartesian products. 
+    
+    \item[4. ]To prove $|\Z|=|\Z-\{2\}|$, it suffices to find a listing for $\Z-\{2\}$ since $|\Z|=\aleph_0$ as shown in class. In other words we are trying to show that 
+    $|\Z-\{2\}| = \aleph_0$. 
+    $$\Z-\{2\}=\{0,1,-1,-2,3,-3,4,-4,...\} $$
+    \\ $\square$
+    
+    \item[5. ]\textbf{Result: }Every denumerable set can be partitioned into a denumerable number
+    of denumerable sets. \\ \\ 
+    \textbf{Lemma: }Let $P=\{p\in\N: \text{p is prime}\}.$ Then $|P|=\aleph_0$. We will begin by proving there are infinitely many primes. \\
+    Assume to the contrary, that there exist a finite amount of primes, say $n$. Then $P=\{p_1, p_2,...,p_n\}.$ 
+    Now consider the number
+    $$p={(\displaystyle \prod_{i=1}^{n} p_{i}})+1.$$ Definitely, $p$ is larger than any prime in our set $P$, so $p\notin P$. This must mean one of the primes in $P$ must divide $p$, however choosing any $p_i\in P$ and dividing $p$ by $p_i$ yields a remainder one. This is a contradiction, so there must exists an infinite amount of prime numbers. \\
+    Since, we now know $P$ is infinite, it is also clear that $P$ is denumerable since we can simply list the set as $P=\{p_1,p_2,p_3...\}$. Thus $|P|=\aleph_0$.\\ \\
+    \textbf{Proof: }Let $ S = \{ a_1, a_2, a_3...\}$, be an arbitrary, denumerable set and $P$ be the set of primes such that $p_i$ is the i-th prime. We can partition the set $S$ as follows
+    \begin{itemize}
+        \item Assign all the elements in $S$ whose indices are multiples of the first prime number to the set $S_1$. That is all elements of $S$ whose index is even. $S_1$ is the first set of our partition.
+        \item Now consider all the remaining elements, $S-S_1$. Add the elements in $S-S_1$ to the set $S_2$ whose indices are multiples of the second prime. That is $p_2=3$, and the set of indices is $\{3,9,15...\}$.
+        \item Repeat this process for all primes
+    \end{itemize}
+    Essentially, we are describing a modified form of the sieve of Eratosthenes. It is clear that our sets $S_n$ are indeed pairwise disjoint, since each iteration we consider $S-S_{n-1}$. It is also clear that the $\displaystyle \bigcup_{n=1}^{\infty} S_n= S$, and finally that $S_n\neq \emptyset$. Thus we have indeed described a partition of $S$. Also from Lemma 1, it follows that we have partitioned $S$ into a denumerable number of sets. These sets are indeed denumerable since the listing is clearly laid out in the above steps. These listings are valid listings since the indicies are subsets of $P$, which is a denumerable set from our Lemma, and a subset of a denumerable set is denumerable. Now, the only remaining concern, is that $a_1\in S$ was never assigned. This is not a problem, since we can add it to $S_1$ without loss of generality, since $S_1$ will still be denumerable.\\
+    Thus every denumerable set can be partitioned into a denumerable number of denumerable sets.
+    \\ $\square$
+    
+    \item[6. ]
+    \begin{enumerate}
+        \item[(a)]Let the set $S$ have elements $x_{nm_1m_2}$, where $n\in\N$ and the ordered pair $(m_1,m_2)$ represent a rational number $\frac{m_2}{m_1}$. If we consider the Cartesian product $\N\times\Q$, we have a set in the form $\{(1,1,1),(2,1,1),(1,1,2),(3,1,1),(2,1,2),(1,2,1)...\}$. If we let the above set represent the indicies of our set $S$, then we have found a listing for $S$ and so $S$ is countable.
+        
+        \item[(b)]Let $T$ be the set of numbers formed by finite sums of the elements of $S$. We want to show that $T$ is countable. We can partition $T$ into sets consisting of all possible numbers formed by $n$ sums where $n\in\N$. That is $T_1$ is just $S$, $T_2$ is a set represented by $S\times S$, $T_3$ by $S\times S\times S$ and so on. This is valid, because we are not interested in the value of the sum, just simply ordering those values. From the result in $(3)$, we can take $$ \displaystyle \bigcup_{n=1}^{\infty}S^{\times n} =T$$
+        which is denumerable. Thus $T$ is denumerable.
+        
+        \item[(c)]Assume to the contrary, that the irrationals are countable. We know that the union of the irrationals and the rationals are the reals. We know from $(2)$ that the union of countable sets is countable, but we also know the reals are uncountable. This is a contradiction so the irrationals are uncountable. 
+    \end{enumerate}
+    
+    \item[7. ]To prove $f:(-1,1)\rightarrow \R$, $f(x)=\frac{x}{1-x^2}$ is bijective we need to show $f$ is both injective and surjective. First we show $f$ is injective. Begin by assuming $f(a)=f(b)$ for $a,b\in(-1,1)$. Then,
+    \begin{align*}
+        \frac{a}{1-a^2} &=\frac{b}{1-b^2} \\ 
+        a(1-b^2) &= b(1-a^2) \\
+        a-ab^2+ ba^2-b   &= 0 \\ 
+        (a-b)(ab+1) &= 0 \\
+    \end{align*}
+    
+    Now we can see that either $a=b$ or $ab=-1$, but the latter requires $a$ or $b$ to be at least -1 or at most 1. Thus $a=b$ and $f$ is injective. Now to show $f$ is surjective it sufficies to show that $f((-1,1))=\R$. To show this, let $ r\in\R$. We can now show that there exists $x\in(-1,1)$ such that $f(x)=r$. If $r=0$ then $f(0)=0$, so we may assume $r\neq 0$. Solving for $r$ yields,
+    $$ x =\frac{(−1\pm\sqrt{1+4r^2})}{2r}. $$
+    If $r>0$, then $0<-1+\sqrt{1+4r^2}<2r$. This implies that $\frac{-1+\sqrt{1+4r^2}}{2r}\in(0,1).$ Using a similar argument, we can see that if $r<0$, then $\frac{(−1+ \sqrt{1+4r^2})}{2r}\in (-1,0)$. Thus $f(\frac{(−1+ \sqrt{1+4r^2})}{2r})=r$ and $f$ is surjective.
+    
+    \item[8. ]Let $A$ be a set. Then $A$ is finite, denumerable, or uncountable. If $A$ is finite, then $|A|\neq|\pow{A}|\implies|A|\neq|2^{A}|$. If $A$ is denumerable then since $|2^A|>|A|$, $2^A$ is not denumerable. If $A$ is uncountable, then since $|2^A| > |A|,\;2^A$ is also an uncountable set.
+    
+    \item[9. ]If there exists a bijection $f:A\rightarrow B$, then by definition $|A| = |B|$. This means $\pow{A}=2^{|A|}$, but since $|A| = |B|$, $\pow{A}=2^{|B|}$. Using a similar argument, $P(B)=2^{|B|}=2^{|A|}$. Thus $|\pow{A}|=|\pow{B}|$ then by definition there must exist a bijection between the two.
+    
+    \item[10. ]Assume that $|A|=|C|$ and $A\subseteq B\subseteq C$. Then we know from the Schroder-Bernstein theorem (S.B.) that there exists a bijection from $A\rightarrow C$. This implies that injections from $A\rightarrow C$ and $C\rightarrow A$ exist. We also know $B\subseteq C$ so $\forall b\in B, b\in C$. Together, this implies that an injection from $B\rightarrow A$. Similarly, we know that becasue $\forall a\in A, a\in B$, there exists an injection from $A\rightarrow B$. Now from S.B. we have,
+    $$ (|A|=|B|) \land (|A|=|C|) \implies |A|=|B|=|C| $$
+    $\square$
+
+    
+ 
+ \end{enumerate}
+ 
+\end{document}
