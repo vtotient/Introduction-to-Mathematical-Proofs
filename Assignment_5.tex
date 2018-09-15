@@ -1,0 +1,135 @@
+% --------------------------------------------------------------
+% Template from: https://www.overleaf.com/13078518sxmdpymkyzqk#/501% 97401/
+% Author: vtotient
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{enumerate}
+\usepackage{pgfplots}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\pow}[1]{ \mathcal{P}\left(#1\right) }
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Assignment 5}%replace X with the appropriate number
+\author{vtotient\\}
+ 
+\maketitle
+        
+    \begin{enumerate}
+        \item [5.23] 
+            \textbf{Result: }$\nexists \; a\in\mathbb{Z}\;$ s.t. $a\equiv 5\pmod{14} \land a\equiv 3\pmod{21}$. \\
+            \textbf{Proof: }Assume to the contrary, that $\exists a \in\mathbb{Z}$ such that $a\equiv 5\pmod{14} \land \\ a\equiv 3\pmod{21}$. Then 
+            $$a=14k+5$$
+            $$a=21l+3$$
+            for some $k,l\in\mathbb{Z}$. This implies $a=21l+3=14k+5$. Rearranging, 
+            $$2=21l-14k$$
+            $$2=7(3l-2k).$$
+            Since $(3l-2k)$ is an integer, $7\mid 2$, which is a contradiction. 
+            \\$\square$
+            
+        \item [5.55]
+            \textbf{Result: }There does not exist positive integers, $a,n$ such that $a^2+3=3^n$. \\
+            \textbf{Proof: }Assume to the contrary, that $\exists a,n\in\mathbb{Z},n>0,a>0$, such that $a^2+3=3^n$. \\
+            So we have, 
+            $$a^2=3^n-3=3(3^{n-1}-1).$$
+            This is a contradiction because $\forall n\in\mathbb{N}, \; 3(3^{n-1}-1)$ cannot be a perfect square. That is $\forall n\in\mathbb{N}, \;(3^n-1)\neq 3$.
+            \\$\square$
+        
+        \item [3]
+            \begin{enumerate}
+                \item [(a)] \textbf{Result: }$5^{1/3}\notin\mathbb{Q}$. \\
+                \textbf{Proof: }Assume to the contrary, that $5^{1/3}\in\mathbb{Q}$. We can write, $5^{1/3}=\frac{a}{b}$, for some $a,b\in\mathbb{Z}$, where $gcd(a,b)=1$. It follows that
+                $$5=\frac{a^3}{b^3}$$
+                $$5b^3=a^3.$$
+                This implies that $5\mid a$, so $a=5k$ for some $k\in\mathbb{Z}$.\footnote{This follows from $a^k\equiv b^k\pmod{n}$, which was proven in class.} 
+                \newpage
+                Now we can write,
+                $$b^3=5^2k^3.$$ For similar reasons, $b=5l,$ for some $l\in\mathbb{Z}$. This is a contradiction, since $gcd(a,b)\neq 1$.
+                \\$\square$
+                
+                \item [(b)] \textbf{Result: }$\log_{2}(5)\notin\mathbb{Q}$. \\
+                \textbf{Proof: } Assume to the contrary, $\log_{2}(5)\in\mathbb{Q}$. Then $$ \log_{2}(5) =\frac{a}{b}$$ with $a,b\in\mathbb{Z}$ and $gcd(a,b)=1$. Then, 
+                $$ 5=2^{\frac{a}{b}}$$
+                $$5^b=2^a,$$
+                which is a contradiction since $5^b$ is odd and $2^a$ is even. 
+                
+                \item [(c)] \textbf{Result: }If $n$ is a positive integer such that $n\ge 2$, then $\sqrt[n]{\frac{5}{3}}$ is irrational. \\
+                \textbf{Proof: } 
+
+            \end{enumerate}
+            
+        \item [4] 
+            \textbf{Result: }Between any two real numbers, there are          infinitely many rational numbers. \\\\
+            \textbf{Lemma: }There exists at least one rational between any two real numbers. \\
+            Let $x,y$ be real numbers such that the interval $(x,y)$ is some arbitrary subset of $\mathbb{R}$. Without loss of generality, assume $y>x$ and both $x,y$ are positive. We can define, for some $n\in\mathbb{N}$,
+            $$\frac{1}{n}<y-x.$$
+            So then we have,  
+            $$1<ny-nx.$$ 
+            So there exists an integer, $m$, such that
+            $$nx<m<ny$$
+            $$x<\frac{m}{n}<y.$$
+            Since $\frac{m}{n}\in\mathbb{Q}$, we know there exists a rational between any two reals. \\\\
+            \textbf{Proof: }By our Lemma, we know there exists a rational between any two reals, say $x,y$. Now assume to the contrary, that there exists a finite number of rationals in the interval $(x,y)$. This implies there exists a rational, $q$ such that $q$ is the smallest rational. \\
+            Now consider the interval $(x,q)$. Clearly, $(x,q)\subset{(x,y)}$ and by our Lemma we know there exists a rational between $x$ and $q$. Denote this rational as,  $p\in\mathbb{Q}$ such that $x<p<q$. This, however, is a contradiction, since $p\nless q$. Hence there exists infinitely many rationals between any two reals. \\
+            $\square$
+            
+        \item[5]
+            \begin{enumerate}
+                \item [(a)] In the proof, the goal is to prove the existence of a $y$ for all instances of $z^x$. The given proof is invalid, however, because it shows that for all $y$ there exists specific $x$ and $z$. The writer has confused the existential and universal quantifiers. 
+                
+                \item[(b)] \textbf{Result: }Let $x$ be any positive real number. Then for every positive real number $y$,
+                there is a positive real number $z$ such that $z^x>y$. \\
+                \textbf{Proof: }Assume to the contrary, that 
+                $$\exists y \in\mathbb{R^+}, \exists x \in\mathbb{R^+}, \forall z\in\mathbb{R^+}, z^x\leq y.$$
+                Given any positive real $x$, we can consider all positive values for $z$. This means $z^x$ can be made arbitrarily large, or in other words, $z^x$ is an arbitrary real number. The above statement is implying there exists a least upper bound on $z^x$. This, however, is a contradiction since the set of real numbers has no upper bound by definition. 
+                $\square$
+        \item[6] 
+                \textbf{Proof: }Assume to the contrary that 
+                $$\forall x,y\in\mathbb{R},\;(x\geq y, \lor f(x)\neq f(y)).$$
+                We can construct a continuous function, $H(t)$, such that,
+                $$H(0) = f(b)-f(c)$$
+                and,
+                $$H(1) = f(d) - (c).$$
+                But we know $f(c)>f(d),$ so $H(1)$ is negative while $H(0)$ is positive, because $f(b)>f(a)$.
+                Let $H(t) = f(x) - f(y)$. So by the IVT $H=0$ at some $t\in\mathbb{R}$. We can arrive at a contradiction by selecting,
+                $$x=b-bt+ct$$
+                and,
+                $$y=a-at+dt.$$
+                This is because,
+                $$f(x) - f(y) = 0$$
+                so,
+                $$f(x)=f(y).$$
+                $\square$
+        
+            \end{enumerate}
+             
+            
+    \end{enumerate}
+        
+\end{document}
