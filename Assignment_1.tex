@@ -1,0 +1,148 @@
+% --------------------------------------------------------------
+% Template from: https://www.overleaf.com/13078518sxmdpymkyzqk#/501% 97401/
+% Author: Victor Sira
+% Created January 6 2018
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{enumerate}
+\usepackage{pgfplots}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\pow}[1]{ \mathcal{P}\left(#1\right) }
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Assignment 1}%replace X with the appropriate number
+\author{Victor Sira, 21278163\\ %replace with your name
+MATH 220 - Section 202} %if necessary, replace with your course title
+ 
+\maketitle
+ 
+\begin{itemize}
+    
+    \item[\bf{1.2}]
+    
+        \begin{enumerate}[(a)]
+            \item $\{x\in S: x\geq1\}$
+            \item $\{x\in S: x\geq0\}$
+            \item $\{x\in S: x\leq-1\}$
+            \item $\{x\in S: x < -1 \ \text{and} \ x > 1\}$
+        \end{enumerate}
+    
+    \item[\bf{1.4}]
+    
+        \begin{enumerate}[]
+            \item (a) $\{-3,-2,-1,0,1,2,3,4\}$
+            \item (b) $\{0,1\}$
+            \item (e) $\{\} \ \text{or equivalently} \ \emptyset $
+        \end{enumerate}
+    
+    \item[\bf{1.14}]
+    
+        \begin{enumerate}[(a)]
+            \item $ \pow{A}= \{ \emptyset,\{1\}, \{2\}, \{1,2\}\} \ \text{and} \mid \pow{A} \mid \: = 2^2=4$
+            \item $ \pow{A}= \{\emptyset,\{\emptyset\}, \{1\}, \{\{a\}\}, \{\emptyset,\{a\}\}, \{\emptyset, 1\}, \{1,\{a\}\}, \{\emptyset, 1, \{a\}\}\} \ \text{and} \\
+            \mid \pow{A} \mid \: =2^3 = 8$
+        \end{enumerate}
+    
+    \item[\bf{1.16}] First, find $\pow{\{1\}}$ which is $\{\emptyset,\{1\}\}$ and its cardinality, $\mid \pow{\{1\}} \mid \: = 2.$ Now, 
+        \begin{equation*}
+            \pow{\{\emptyset, \{1\}\}}=\{\emptyset,\{\emptyset\},\{\{1\}\},\{\emptyset,\{1\}\},
+        \end{equation*}
+    and so,
+        \begin{equation*}
+            \mid \pow{\{\emptyset, \{1\}\}} \mid \: = 2^2 = 4.
+        \end{equation*}
+    
+    \item[\bf{1.22}]
+        
+        \begin{enumerate}[(a)]
+            \item $ A \cup B=\{1,3,5,9,13,15\}$
+            \item $ A\cap B=\{9\}$
+            \item $ A\setminus B=\{1,5,13\}$
+            \item $ B \setminus A = \{ 3, 15\}$
+            \item $ \Bar{A}= \{3,7,11,15\}$
+            \item $ A \cap \Bar{B}=\{1,5,13\}$
+        \end{enumerate}
+
+    \item[\bf{1.24}] If we let $A=\{1,2\}, \ B=\{1,3\},\ \text{and} \ C=\{2,3\} $ then the property, $ B-A=C-A$ is satisfied.
+    
+    \item[\bf{1.38}]
+    
+        \begin{enumerate}[(a)]
+            \item $\bigcup_{\alpha \in S}A_{\alpha}=\{1,4,6\}$ and $\bigcap_{\alpha \in S}A_{\alpha}=\emptyset$
+            \item $\bigcup_{\alpha \in S}B_{\alpha}=[0,5]$ and $\bigcap_{\alpha \in S}B_{\alpha}=\emptyset$
+            \item $\bigcup_{\alpha \in S}C_{\alpha}=(1, \infty)$ and $\bigcap_{\alpha \in S}C_{\alpha}=(4, \infty)$
+        \end{enumerate}
+        
+    \item[\bf{1.42}]
+    
+        \begin{enumerate}[(a)]
+            \item Let $A_n=[1,2+\frac{1}{n})$, for each $n\in \mathbb{N}$. It follows that
+                \begin{equation*}
+                    \bigcup_{n\in \mathbb{N}}A_n=[1,3)
+                \end{equation*}
+            and,
+            \begin{equation*}
+                    \bigcap_{n\in \mathbb{N}}A_n=[1,2].
+                \end{equation*}
+            Note the intersection has a closed interval because as $n$ tends to infinity, $\frac{1}{n}$ converges to 0. 
+            \item Let $A_n=\{\frac{1-2n}{n},2n\}$, for each $n \in \mathbb{N}$. Similarly,
+                \begin{equation*}
+                    \bigcup_{n\in \mathbb{N}}A_n=(-2, \infty)
+                \end{equation*}
+            because as $n$ tends to infinity, $\frac{1-2n}{n}$ \ converges to $-2$, while $2n$ increases indefinitely. Also,
+            \begin{equation*}
+                    \bigcap_{n\in \mathbb{N}}A_n=(-1,2).
+                \end{equation*}
+        \end{enumerate}
+        
+    \item[\bf{1.54}] The set $S=\{\{1,12\},\{2\},\{3\},\{4,5\}, \{6,7,8,9,10,11\}\}$ with the set $T=\{\{2\},\{3\},\{4,5\},\\ \{6,7,8,9,10,11\}\}$ can be shown to satisfy all three properties.
+
+    \item[\bf{1.66}] Let $A$ and $B$ be the sets given in the question. Then $A\times B$ can be thought of as the set that contains the two lines $y=1$ and $y=-1$ with the restriction $x\in [-1,1]$. Likewise, $B\times A$ is the set that contains the two lines $x=1$ and $x=-1$ with $y\in [-1,1]$. Thus, $A\times B \cup B\times A$ is the set that joins the four lines in such a way that they make a square centered about the origin with an area of $4$. 
+      
+    \item[\bf{1.74}] Let $A = \{1\}$ and $C=\{1,2\}$. If the condition $\pow{A}\subset B\subset \pow{C}$ must be satisfied then a possible choice for $B$ is 
+        \begin{equation*}
+            B=\{\emptyset,\{1\}, \{2\}\}.
+        \end{equation*}
+        
+    \item[\bf{1.84}] From the sets given in the question, it can be shown that,
+        \begin{align*}
+            \pow{A} &=\{\emptyset,\{1\},\{2\},\{3\}, \{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\} 
+            \\
+            B &=\{\{1,2\},\{1,3\},\{2,3\}\}
+            \\
+            C &=\{1\},\{2\},\{3\}\}.
+        \end{align*}
+    Therefore, if $D$ is $\pow{C}$, then
+        \begin{equation*}
+            D=\{\emptyset,\{\{1\}\},\{\{2\}\},\{\{3\}\},\{\{1\},\{2\}\},\{\{1\},\{3\}\}, \{\{2\},\{3\}\}, \{\{1\},\{2\}\, \{3\}\}\}.
+        \end{equation*}
+    \end{itemize}
+    
+\end{document}
